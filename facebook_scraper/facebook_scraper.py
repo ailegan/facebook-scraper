@@ -52,7 +52,8 @@ class FacebookScraper:
         "Accept": "*/*",
         "Connection": "keep-alive",
         "Accept-Encoding": "gzip,deflate",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 8_6_1; like Mac OS X) AppleWebKit/536.19 "
+                      "(KHTML, like Gecko) Chrome/52.0.2354.267 Mobile Safari/537.3",
     }
     have_checked_locale = False
 
