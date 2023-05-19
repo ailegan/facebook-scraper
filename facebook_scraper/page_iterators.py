@@ -113,7 +113,9 @@ def generic_iter_pages(
         if next_page:
             posts_per_page = kwargs.get("options", {}).get("posts_per_page")
             if posts_per_page:
-                next_page = next_page.replace("num_to_fetch=4", f"num_to_fetch={posts_per_page}")
+                regex = r"num_to_fetch=(\d+)"
+                replacement = f"num_to_fetch={posts_per_page}"
+                next_page = re.sub(regex, replacement, next_page)
             next_url = utils.urljoin(base_url, next_page)
         else:
             logger.info("Page parser did not find next page URL")
