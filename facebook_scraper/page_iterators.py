@@ -83,7 +83,7 @@ def generic_iter_pages(
         RETRY_LIMIT = 6
         for retry in range(1, RETRY_LIMIT + 1):
             try:
-                logger.debug("Requesting page from: %s", next_url)
+                logger.info("Requesting page from: %s", next_url)
                 response = request_fn(next_url)
                 break
             except HTTPError as e:
@@ -105,7 +105,7 @@ def generic_iter_pages(
         page = parser.get_page()
 
         # TODO: If page is actually an iterable calling len(page) might consume it
-        logger.debug("Got %s raw posts from page", len(page))
+        logger.info("Got %s raw posts from page", len(page))
         yield page
 
         logger.debug("Looking for next page URL")
