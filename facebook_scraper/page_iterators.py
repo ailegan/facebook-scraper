@@ -83,7 +83,11 @@ def generic_iter_pages(
         RETRY_LIMIT = 6
         for retry in range(1, RETRY_LIMIT + 1):
             try:
-                logger.info("Requesting page from: %s", next_url)
+                if request_delay:
+                    logger.info("Requesting page from: %s in %d seconds", next_url, int(request_delay))
+                    time.sleep(request_delay)
+                else:
+                    logger.info("Requesting page from: %s", next_url)
                 response = request_fn(next_url)
                 break
             except HTTPError as e:
