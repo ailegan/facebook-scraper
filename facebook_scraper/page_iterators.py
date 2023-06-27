@@ -81,11 +81,11 @@ def generic_iter_pages(
             request_url_callback(next_url)
 
         RETRY_LIMIT = 6
-        request_delay = kwargs.get("options", {}).get("request_delay")
+        request_delay = int(kwargs.get("options", {}).get("request_delay", 0))
         for retry in range(1, RETRY_LIMIT + 1):
             try:
                 if request_delay:
-                    logger.info("Requesting page from: %s in %d seconds", next_url, int(request_delay))
+                    logger.info("Requesting page from: %s in %d seconds", next_url, request_delay)
                     time.sleep(request_delay)
                 else:
                     logger.info("Requesting page from: %s", next_url)
