@@ -50,7 +50,6 @@ We’re headed to PAX East 3/28-3/31 with new games
 - **group**: group id, to scrape groups instead of pages. Default is `None`.
 - **pages**: how many pages of posts to request, the first 2 pages may have no results, so try with a number greater than 2. Default is 10.
 - **timeout**: how many seconds to wait before timing out. Default is 30.
-- **request_delay**: how many seconds to wait before initiating a network request. Default is `None`.
 - **credentials**: tuple of user and password to login before requesting the posts. Default is `None`.
 - **extra_info**: bool, if true the function will try to do an extra request to get the post reactions. Default is False.
 - **youtube_dl**: bool, use Youtube-DL for (high-quality) video extraction. You need to have youtube-dl installed on your environment. Default is False.
@@ -65,6 +64,7 @@ Both `comments` and `reactors` can also be set to a number to set a limit for th
 Set `options={"progress": True}` to get a `tqdm` progress bar while extracting comments and replies.
 Set `options={"allow_extra_requests": False}` to disable making extra requests when extracting post data (required for some things like full text and image links).
 Set `options={"posts_per_page": 200}` to request 200 posts per page. The default is 4.
+Set `options={"request_delay": 3}` to wait 3 seconds before initiating a network request. The default is no delay.
 
 ## CLI usage
 

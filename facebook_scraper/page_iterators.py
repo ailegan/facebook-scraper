@@ -81,6 +81,7 @@ def generic_iter_pages(
             request_url_callback(next_url)
 
         RETRY_LIMIT = 6
+        request_delay = kwargs.get("options", {}).get("request_delay")
         for retry in range(1, RETRY_LIMIT + 1):
             try:
                 if request_delay:
